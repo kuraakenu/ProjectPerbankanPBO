@@ -8,6 +8,6 @@ package Controller;
  *
  * @author mzida
  */
-public class LoginController {
+public class UserController {
     
 }

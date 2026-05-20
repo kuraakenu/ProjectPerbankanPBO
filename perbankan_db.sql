@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2026 at 04:14 AM
+-- Generation Time: May 20, 2026 at 04:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `nasabah` (
 CREATE TABLE `rekening` (
   `id` int(11) NOT NULL,
   `no_rekening` varchar(20) DEFAULT NULL,
-  `saldo` decimal(15,2) DEFAULT NULL,
+  `saldo` double DEFAULT NULL,
   `jenis` enum('Tabungan','Giro') DEFAULT NULL,
   `id_nasabah` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -56,8 +56,8 @@ CREATE TABLE `rekening` (
 
 CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL,
-  `jenis` enum('Setor','Tarik','Transfer') DEFAULT NULL,
-  `jumlah` decimal(15,2) DEFAULT NULL,
+  `jenis` varchar(255) DEFAULT NULL,
+  `jumlah` double(15,2) DEFAULT NULL,
   `tanggal` datetime DEFAULT current_timestamp(),
   `id_rekening_asal` int(11) DEFAULT NULL,
   `id_rekening_tujuan` int(11) DEFAULT NULL
