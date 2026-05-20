@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.Transaction;
+package Model.Transaksi;
 
 /**
  *
  * @author mzida
  */
-public class ModelTableTransaction {
+public class DAOTransaksi {
     
 }
