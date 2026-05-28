@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model.Rekening;
 
-/**
- *
- * @author mzida
- */
 public class ModelRekening {
     private Integer id;
-    private String noRek, jenis;
+    private String noRek;
+    private String jenis;
+    private String pin; // Atribut baru untuk enkapsulasi PIN Nasabah
     private int idNasabah;
     private double saldo;
 
@@ -38,6 +32,20 @@ public class ModelRekening {
         this.jenis = jenis;
     }
 
+    // Getter dan Setter Baru untuk PIN
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        // Validasi dasar: PIN perbankan umumnya harus 6 digit angka
+        if (pin != null && pin.length() == 6) {
+            this.pin = pin;
+        } else {
+            this.pin = "123456"; // Default jika input tidak valid
+        }
+    }
+
     public int getIdNasabah() {
         return idNasabah;
     }
@@ -53,6 +61,4 @@ public class ModelRekening {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-    
-    
 }

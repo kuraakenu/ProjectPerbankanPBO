@@ -1,30 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model.Nasabah;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author mzida
- */
-public class ModelTableNasabah extends AbstractTableModel{
+public class ModelTableNasabah extends AbstractTableModel {
+
+    private List<ModelNasabah> listNasabah = new ArrayList<>();
+    private final String[] columnNames = {"ID", "Nama", "Alamat", "No. Telepon"};
+
+    public void setList(List<ModelNasabah> listNasabah) {
+        this.listNasabah = listNasabah;
+        fireTableDataChanged();
+    }
 
     @Override
     public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return listNasabah.size();
     }
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return columnNames.length;
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return columnNames[column];
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ModelNasabah nasabah = listNasabah.get(rowIndex);
+        switch (columnIndex) {
+            case 0: return nasabah.getId();
+            case 1: return nasabah.getNama();
+            case 2: return nasabah.getAlamat();
+            case 3: return nasabah.getNoTelp();
+            default: return null;
+        }
     }
-    
 }

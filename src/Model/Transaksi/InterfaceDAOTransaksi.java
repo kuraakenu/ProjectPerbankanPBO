@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model.Transaksi;
 
-/**
- *
- * @author mzida
- */
+import java.util.List;
+
 public interface InterfaceDAOTransaksi {
+    //Kontrak u/ catat transaksi baru (TF Setor Tarik)
+    public boolean tambahTransaksi(ModelTransaksi trx);
     
+    //kontrak utk Admin : Melihat SEMUA transaksi dari seluruh nasabah
+    public List<ModelTransaksi> getAllYtansaksi();
+    
+    //Kontrak utk Nasabah : Hanya melihat transaksi milik ID rekening pribadi
+    public List<ModelTransaksi> getTransaksiByRekening(int idRekening);
 }

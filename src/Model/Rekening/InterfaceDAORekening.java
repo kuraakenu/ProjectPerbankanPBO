@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model.Rekening;
 
-/**
- *
- * @author mzida
- */
-public class InterfaceDAORekening {
+import java.util.List;
+
+public interface InterfaceDAORekening {
+    // Kontrak untuk login nasabah menggunakan No Rekening dan PIN
+    public ModelRekening loginNasabah(String noRek, String pin);
     
+    // Kontrak untuk Admin membuat rekening baru
+    public void tambahRekening(ModelRekening rek);
+    
+    // Kontrak untuk mencari rekening berdasarkan nomornya (dipakai saat transfer)
+    public ModelRekening cariRekening(String noRek);
+    
+    // Kontrak untuk memperbarui saldo (dipakai saat setor/tarik/transfer)
+    public void updateSaldo(String noRek, double saldoBaru);
 }

@@ -4,10 +4,6 @@
  */
 package Model.Transaksi;
 
-/**
- *
- * @author mzida
- */
 public class ModelTransaksi {
     private Integer id;
     private String jenis, tanggal;

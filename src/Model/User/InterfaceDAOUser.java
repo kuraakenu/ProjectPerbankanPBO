@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package Model.User;
 
-/**
- *
- * @author mzida
- */
 public interface InterfaceDAOUser {
-    
+    // Kontrak untuk mengecek login admin berdasarkan username & password
+    public ModelUser loginAdmin(String username, String password);
 }
