@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2026 at 04:39 AM
+-- Generation Time: May 30, 2026 at 09:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,14 @@ CREATE TABLE `nasabah` (
   `no_telp` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `nasabah`
+--
+
+INSERT INTO `nasabah` (`id`, `nama`, `alamat`, `no_telp`) VALUES
+(1, 'Ahmad', 'Jawa Selatan', '12324'),
+(2, 'Kasep', 'Jowo Borot', '123245');
+
 -- --------------------------------------------------------
 
 --
@@ -43,10 +51,19 @@ CREATE TABLE `nasabah` (
 CREATE TABLE `rekening` (
   `id` int(11) NOT NULL,
   `no_rekening` varchar(20) DEFAULT NULL,
+  `pin` varchar(6) NOT NULL DEFAULT '123456',
   `saldo` double DEFAULT NULL,
   `jenis` enum('Tabungan','Giro') DEFAULT NULL,
   `id_nasabah` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rekening`
+--
+
+INSERT INTO `rekening` (`id`, `no_rekening`, `pin`, `saldo`, `jenis`, `id_nasabah`) VALUES
+(1, '1234', '111111', 150000, 'Tabungan', 1),
+(2, '12345', '123456', 50000, 'Tabungan', 2);
 
 -- --------------------------------------------------------
 
@@ -63,6 +80,15 @@ CREATE TABLE `transaksi` (
   `id_rekening_tujuan` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `jenis`, `jumlah`, `tanggal`, `id_rekening_asal`, `id_rekening_tujuan`) VALUES
+(1, 'Transfer', 50000.00, '2026-05-30 21:28:54', 2, 1),
+(2, 'Setor Tunai', 50000.00, '2026-05-31 00:06:10', NULL, 2),
+(3, 'Tarik Tunai', 50000.00, '2026-05-31 00:06:41', 2, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +102,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -83,7 +116,8 @@ CREATE TABLE `user` (
 -- Indexes for table `nasabah`
 --
 ALTER TABLE `nasabah`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `no_telp` (`no_telp`);
 
 --
 -- Indexes for table `rekening`
@@ -114,25 +148,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `nasabah`
 --
 ALTER TABLE `nasabah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rekening`
 --
 ALTER TABLE `rekening`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
