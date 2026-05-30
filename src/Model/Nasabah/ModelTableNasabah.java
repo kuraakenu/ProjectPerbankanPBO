@@ -7,7 +7,7 @@ import java.util.List;
 public class ModelTableNasabah extends AbstractTableModel {
 
     private List<ModelNasabah> listNasabah = new ArrayList<>();
-    private final String[] columnNames = {"ID", "Nama", "Alamat", "No. Telepon"};
+    private final String[] columnNames = {"ID", "Nama", "Alamat", "No. HP"};
 
     public void setList(List<ModelNasabah> listNasabah) {
         this.listNasabah = listNasabah;
@@ -33,11 +33,16 @@ public class ModelTableNasabah extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         ModelNasabah nasabah = listNasabah.get(rowIndex);
         switch (columnIndex) {
-            case 0: return nasabah.getId();
-            case 1: return nasabah.getNama();
-            case 2: return nasabah.getAlamat();
-            case 3: return nasabah.getNoTelp();
-            default: return null;
+            case 0: 
+                return nasabah.getId();
+            case 1: 
+                return nasabah.getNama();
+            case 2: 
+                return nasabah.getAlamat();
+            case 3: 
+                return nasabah.getNoTelp();
+            default: 
+                return null;
         }
     }
 }

@@ -287,6 +287,9 @@ public class ViewUtama extends javax.swing.JFrame {
 
     private void btnBuatRekeningBaruActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         JOptionPane.showMessageDialog(this, "Membuka Form Pembuatan Rekening Baru (TabRekening)...");
+        new ViewFormNasabah().setVisible(true);
+        this.dispose();
+        
     }                                                   
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {                                          

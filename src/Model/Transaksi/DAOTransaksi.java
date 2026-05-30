@@ -2,7 +2,7 @@ package Model.Transaksi;
 
 // PERBAIKAN IMPORT: Sesuaikan dengan lokasi class koneksi database Anda
 // Jika nama class Anda adalah 'Koneksi' di dalam package 'Connection', ubah ke: Connection.Koneksi;
-import Connection.Koneksi; 
+import Model.Connector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +18,7 @@ public class DAOTransaksi implements InterfaceDAOTransaksi {
     
     public DAOTransaksi(){
         // PERBAIKAN: Disesuaikan dengan pemanggilan class Koneksi utama Anda
-        this.connection = Koneksi.Connect(); 
+        this.connection = Connector.Connect(); 
     }
     
     @Override

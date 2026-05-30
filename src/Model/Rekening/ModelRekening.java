@@ -37,13 +37,8 @@ public class ModelRekening {
         return pin;
     }
 
-    public void setPin(String pin) {
-        // Validasi dasar: PIN perbankan umumnya harus 6 digit angka
-        if (pin != null && pin.length() == 6) {
-            this.pin = pin;
-        } else {
-            this.pin = "123456"; // Default jika input tidak valid
-        }
+    public String setPin(String pin) {
+        return this.pin = pin;
     }
 
     public int getIdNasabah() {
